@@ -1,0 +1,216 @@
+1.What is Version Control?
+
+Version Control is a system that tracks changes in files over time.
+
+It allows you to:
+
+Track who made changes
+
+Restore previous versions
+
+Collaborate without overwriting others’ work
+
+Maintain project history
+
+ Real-World Example
+
+Imagine editing a project file:
+
+project_v1
+
+project_v2
+
+final_project
+
+final_project_latest
+
+final_project_latest_final
+
+This is messy and unprofessional.
+
+Git solves this.
+
+2️.Centralized vs Distributed Version Control
+ Centralized Version Control (CVCS)
+
+Examples:
+
+Subversion
+
+CVS
+
+Characteristics:
+
+One central server
+
+Developers connect to that server
+
+If server crashes → work stops
+
+Internet required
+
+Problem:
+Single point of failure.
+
+ Distributed Version Control (DVCS)
+
+Example:
+
+Git
+
+Characteristics:
+
+Every developer has full copy of repository
+
+Work offline
+
+No single point of failure
+
+Faster operations
+
+This is why Git dominates modern development.
+
+3️.Why Git Was Created
+
+Git was created in 2005 by:
+
+Linus Torvalds
+
+Reason:
+The Linux kernel project needed a fast, distributed version control system after losing access to BitKeeper.
+
+Requirements:
+
+Speed
+
+Distributed workflow
+
+Strong branching system
+
+Data integrity
+
+Git was built to solve real production problems — not academic theory.
+
+4️.How Git Actually Works (Core Concept)
+
+This is where most beginners stay confused.
+
+Git does NOT store files.
+Git stores snapshots.
+
+Each commit:
+
+Takes a snapshot of entire project
+
+Uses SHA-1 hash to uniquely identify it
+
+Creates a commit tree
+
+Internally Git has:
+
+Working Directory
+
+Staging Area (Index)
+
+Repository (.git folder)
+
+5️.Git File State Machine
+
+Files in Git exist in 4 states:
+
+Untracked
+
+Modified
+
+Staged
+
+Committed
+
+Flow:
+
+Untracked → git add → Staged
+Modified → git add → Staged
+Staged → git commit → Committed
+
+After commit:
+File becomes tracked.
+
+If you modify again → back to Modified state.
+
+This cycle repeats.
+
+If you don’t understand this cycle, you will misuse Git.
+
+6️.Git vs GitHub
+ Git
+
+A version control tool
+
+Installed locally
+
+Works offline
+
+Tracks changes
+
+ GitHub
+
+Cloud platform to host Git repositories
+
+Enables collaboration
+
+Pull Requests
+
+Code review
+
+Important:
+Used for:
+
+Kubernetes manifests
+
+Dockerfiles
+Automation scripts
+
+
+Without Git:
+
+No proper deployment workflow
+No rollback strategy
+
+No audit trail
+
+No collaboration
+
+Git is the backbone of DevOps.
+
+Today I understood:
+
+What version control really means
+
+Difference between centralized and distributed systems
+
+Why Git was created
+
+How Git stores snapshots
+
+Git file lifecycle
+
+Weak areas to revise:
+
+Git internal storage mechanism
+
+Staging area concept Reflection
+
+Configuration management
+
+
+CI/CD pipelines
+
+Infrastructure as Code (Terraform, CloudFormation)
+
+7️Why DevOps Engineers Need Git
+If you want DevOps or AWS role, Git is mandatory.
+
+
+Git works without GitHub.
+Git ≠ GitHub
+CI/CD integration
