@@ -1,0 +1,519 @@
+Linux Day 03 – Networking & Process Management
+1. What is Networking in Linux?
+
+Networking in Linux allows a system to communicate with other systems over a network (LAN, Internet, Cloud).
+Server slow
+Application crashing
+
+Knowing when to use them is step two.
+6. Practice Task Done Today
+
+Today I practiced:
+
+Checking IP address using ip a
+
+Viewing routing table with ip route
+
+Testing connectivity with ping
+
+Checking open ports using ss -tulnp
+
+Testing DNS using nslookup and dig
+
+Monitoring processes using ps aux, top, htop
+
+Checking memory using free -h
+
+Checking disk using df -h, du -sh
+
+Viewing logs using journalctl
+
+7. Important Realizations
+
+Networking is the backbone of cloud computing.
+
+If a service is down, logs and ports should be checked first.
+
+Monitoring CPU, RAM, and disk is critical in production systems.
+
+Troubleshooting is more important than memorizing commands.
+
+8. Reflection
+
+Today I understood how Linux handles networking and process management.
+Knowing commands is step one.
+
+These commands are your first line of investigation.
+Port not accessible
+
+
+Website not loading
+
+If:
+
+
+In server environments like AWS EC2, networking is critical because:
+
+
+In AWS EC2 or any production server:
+Servers must send and receive data
+
+
+Applications communicate over ports
+
+5. Why This is Important for Cloud & DevOps
+Users access services via IP addresses
+
+Without networking knowledge, you cannot troubleshoot production servers.
+
+
+2. Key Networking Concepts
+1. IP Address
+
+An IP address uniquely identifies a system in a network.
+
+Scheduled tasks
+Command used:
+
+ip a
+
+Shows:
+
+IP address
+
+Network interface name
+
+MAC address
+
+If you don’t know your server IP, you cannot debug connectivity issues.
+Automation
+
+
+2. Routing Table
+
+Routing decides where outgoing traffic goes.
+
+Command:
+
+ip route
+
+Shows:
+
+Default gateway
+
+Network routes
+
+If internet is not working on a server, routing is often the issue.
+
+3. Network Connectivity Test
+
+Used in:
+
+Shell scripting
+
+Command:
+
+sleep 5
+
+Command:
+
+ping google.com
+
+
+Used to:
+
+Test internet connectivity
+
+Very important for debugging port conflicts.
+
+6. Sleep Command
+Check DNS resolution
+Shows which process is using a specific port.
+
+
+Measure latency
+
+If ping fails:
+lsof -i :80
+
+
+Could be DNS issue
+
+Could be firewall
+
+Could be routing problem
+
+
+Command:
+
+4. Checking Open Ports
+
+Ports allow applications to communicate.
+
+5. Check Which Process Uses a Port
+Command:
+
+ss -tulnp
+
+Shows:
+
+Listening ports
+
+
+Service name
+
+Most real troubleshooting happens in logs.
+
+Process ID
+
+Load average helps identify CPU pressure.
+
+4. System Logs
+Debug service failures
+
+Analyze system errors
+
+View system logs
+
+Command:
+
+journalctl
+
+Used to:
+
+If a website is not accessible, first check whether the port is listening.
+
+5. DNS Testing
+
+Commands:
+
+
+nslookup google.com
+dig google.com
+
+Used to verify:
+
+Domain name resolution
+
+DNS server response
+
+In cloud environments, wrong DNS configuration can break applications.
+Load average
+
+6. Testing HTTP Services
+
+Command:
+
+
+curl http://localhost
+
+Used to:
+
+Test web servers
+
+Test APIs
+
+Debug backend services
+
+This is a real DevOps troubleshooting tool.
+
+7. Network Interfaces
+
+Command:
+
+How long system is running
+ip link
+
+Shows:
+
+Available interfaces
+Shows:
+
+uptime
+
+
+Interface status (UP/DOWN)
+
+If interface is DOWN, network won’t work.
+
+3. Process Management in Linux
+
+
+A process is a running program in the system.
+
+Servers constantly run multiple processes like nginx, mysql, ssh, etc.
+
+1. View Running Processes
+
+Command:
+
+ps aux
+
+Shows:
+
+Command:
+3. System Uptime & Load
+
+All running processes
+
+CPU usage
+
+Memory usage
+
+
+Process owner
+
+2. Real-Time Monitoring
+
+Commands:
+
+top
+htop
+
+Used to monitor:
+
+CPU usage
+
+Production servers often crash because disk becomes full.
+RAM usage
+
+Running processes in real time
+
+If a server becomes slow, check this immediately.
+
+
+3. Kill a Process
+
+Command:
+
+kill PID
+
+Used to stop unwanted or stuck processes.
+
+If you cannot stop a process, you cannot control the system.
+
+4. System Monitoring Commands
+
+Used RAM
+
+Available RAM
+
+2. Disk Usage
+df → Shows overall disk space
+du → Shows size of specific directory
+
+
+Commands:
+
+df -h
+du -sh foldername
+Monitoring is critical in production servers.
+
+1. Memory Usage
+
+
+Command:
+
+free -h
+
+
+Shows:
+
+Total RAM
+Shows:
+
+Total RAM
+
+free -h
+
+
+Command:
+Used RAM
+4. System Monitoring Commands
+
+Monitoring is critical in production servers.
+
+1. Memory Usage
+
+Available RAM
+
+2. Disk Usage
+
+Commands:
+Linux Day 03 – Networking & Process Management
+If you cannot stop a process, you cannot control the system.
+
+
+1. What is Networking in Linux?
+
+
+Used to stop unwanted or stuck processes.
+Networking in Linux allows a system to communicate with other systems over a network (LAN, Internet, Cloud).
+
+In server environments like AWS EC2, networking is critical because:
+
+Servers must send and receive data
+
+Applications communicate over ports
+
+Users access services via IP addresses
+kill PID
+
+Without networking knowledge, you cannot troubleshoot production servers.
+3. Kill a Process
+
+Command:
+
+
+
+2. Key Networking Concepts
+If a server becomes slow, check this immediately.
+1. IP Address
+Running processes in real time
+
+
+RAM usage
+
+An IP address uniquely identifies a system in a network.
+
+Command used:
+
+
+CPU usage
+
+2. Real-Time Monitoring
+Used to monitor:
+
+Commands:
+
+top
+htop
+
+ip a
+
+Shows:
+
+IP address
+
+
+Network interface name
+
+MAC address
+
+
+Process owner
+
+
+Memory usage
+Shows:
+
+Network routes
+
+DNS server response
+6. Testing HTTP Services
+
+Command:
+
+curl http://localhost
+
+
+Test web servers
+CPU usage
+
+Test APIs
+
+Shows:
+
+All running processes
+
+ps aux
+
+Debug backend services
+
+
+
+Command:
+This is a real DevOps troubleshooting tool.
+
+1. View Running Processes
+7. Network Interfaces
+
+
+Command:
+
+Servers constantly run multiple processes like nginx, mysql, ssh, etc.
+ip link
+A process is a running program in the system.
+
+
+Shows:
+
+
+Available interfaces
+
+Interface status (UP/DOWN)
+3. Process Management in Linux
+
+If interface is DOWN, network won’t work.
+
+Used to:
+In cloud environments, wrong DNS configuration can break applications.
+
+
+
+Domain name resolution
+
+Used to verify:
+If internet is not working on a server, routing is often the issue.
+ping google.com
+dig google.com
+
+nslookup google.com
+
+
+Commands:
+Used to:
+Test internet connectivity
+Measure latency
+If ping fails:
+
+5. DNS Testing
+Could be DNS issue
+
+Could be firewall
+Could be routing problem
+4. Checking Open Ports
+
+Ports allow applications to communicate.
+
+Command:
+
+If a website is not accessible, first check whether the port is listening.
+
+Process ID
+Listening ports
+
+
+Service name
+
+ss -tulnp
+
+Shows:
+
+
+
+
+
+
+Check DNS resolution
+
+Command:
+
+
+3. Network Connectivity Test
+
+
+
+Default gateway
+If you don’t know your server IP, you cannot debug connectivity issues.
+
