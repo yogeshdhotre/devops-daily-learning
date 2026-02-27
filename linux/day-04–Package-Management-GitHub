@@ -1,0 +1,175 @@
+Linux Day 04 – Package Management & Repositories
+1. What is a Package?
+
+A package is a compressed file that contains:
+
+Software program files
+
+Configuration files
+
+Dependency information
+
+Metadata (version, maintainer, description)
+
+Example:
+
+nginx
+
+git
+
+vim
+
+When we install software in Linux, we install a package.
+
+2. What is a Package Manager?
+
+A Package Manager is a tool that:
+
+Installs software
+
+Updates software
+
+Removes software
+
+Manages dependencies automatically
+
+Without a package manager, software installation would be manual and complex.
+
+3. Popular Package Managers
+3.1 Debian / Ubuntu
+
+apt
+
+dpkg
+
+3.2 RedHat / CentOS / Amazon Linux
+
+yum
+
+dnf
+
+rpm
+
+3.3 Arch Linux
+
+pacman
+
+Since we are using Ubuntu, we mainly use apt.
+
+4. Key Responsibilities of a Package Manager
+
+Install packages
+
+Resolve dependencies
+
+Update packages
+
+Remove packages
+
+Maintain package database
+
+Verify package integrity
+
+The package manager ensures required dependencies are installed automatically.
+
+5. Important APT Commands (Ubuntu)
+5.1 Update Package List
+sudo apt update
+
+Updates the local package index from repositories.
+(It does NOT upgrade software.)
+
+5.2 Upgrade Installed Packages
+sudo apt upgrade
+
+Upgrades all installed packages to the latest available versions.
+
+5.3 Install a Package
+sudo apt install nginx
+
+Installs nginx web server.
+
+5.4 Remove a Package
+sudo apt remove nginx
+
+Removes nginx from the system.
+
+5.5 Search for a Package
+apt search nginx
+
+Searches for nginx-related packages.
+
+5.6 Fix Broken Dependencies
+sudo apt --fix-broken install
+
+Fixes dependency-related errors.
+
+6. What is a Repository in Linux?
+
+A Repository (repo) is a server that stores software packages.
+
+When we run:
+
+sudo apt update
+
+The system connects to configured repositories and downloads the latest package list.
+
+Repository configuration file:
+
+/etc/apt/sources.list
+7. What is Dependency?
+
+A dependency is a package required by another package to function properly.
+
+Example:
+
+If nginx depends on:
+
+libssl
+
+libpcre
+
+The package manager installs them automatically.
+
+Without resolving dependencies, software will fail to run.
+
+8. Where Are Packages Stored?
+8.1 Downloaded Package Cache
+/var/cache/apt/archives/
+8.2 Installed Program Files
+
+Common locations:
+
+/usr/bin/
+
+/usr/sbin/
+
+/etc/
+
+/var/
+
+Linux follows a standard File System Hierarchy (FHS).
+
+9. Commands Practiced
+sudo apt update
+sudo apt upgrade
+sudo apt install nginx
+sudo apt remove nginx
+apt search nginx
+sudo apt --fix-broken install
+
+10. What I Learned Today
+
+How to fix broken packages
+Where packages are stored
+
+How dependency management works
+How software installation works in Linux
+
+11. Reflection
+
+Today I understood how Linux manages software using package managers.
+
+Flow:
+
+User → Package Manager → Repository → Installation → System
