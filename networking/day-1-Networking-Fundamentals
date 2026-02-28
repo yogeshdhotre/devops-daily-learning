@@ -1,0 +1,179 @@
+Day 1 – Networking Fundamentals
+What is Networking
+
+Networking is the connection of multiple computers or devices so they can communicate and share data with each other.
+
+The purpose of networking:
+
+Share data
+
+Share resources (printer, storage, server)
+
+Enable communication (email, web, apps)
+
+Example: In a company, all computers are connected through a network to access the same database server.
+
+What is the Internet
+
+The Internet is a global network of networks.
+
+It connects millions of private and public networks across the world using standard communication protocols.
+
+Simple meaning:
+Networking = connection between devices
+Internet = worldwide connection of networks
+
+How the Internet Actually Works
+
+When you open a website:
+
+You type a domain name (example: google.com).
+
+DNS converts domain name into IP address.
+
+Your request travels through routers across networks.
+
+It reaches the server where the website is hosted.
+
+Server sends response back to your system.
+
+Your browser displays the webpage.
+
+Internet works using:
+
+IP addressing
+
+Routers
+
+DNS
+
+Protocols like TCP/IP
+
+What is an IP Address
+
+An IP address is a unique logical address assigned to a device in a network.
+
+It helps identify:
+
+Who is sending data
+
+Who is receiving data
+
+Example:
+192.168.1.1
+
+Without IP address, communication is impossible.
+
+Types of IP Address
+
+Public IP
+Used on the Internet. Globally unique.
+
+Private IP
+Used inside local networks. Not directly accessible from Internet.
+
+Private IP ranges:
+
+10.0.0.0 – 10.255.255.255
+
+172.16.0.0 – 172.31.255.255
+
+192.168.0.0 – 192.168.255.255
+
+Static IP
+Does not change.
+
+Dynamic IP
+Automatically assigned and changes.
+
+What is CIDR
+
+CIDR means Classless Inter-Domain Routing.
+
+It is used to define IP address range using slash notation.
+
+Example:
+192.168.1.0/24
+
+Here:
+
+/24 means 24 bits are fixed for network
+
+Remaining bits are for hosts
+
+CIDR helps in efficient IP allocation and subnetting.
+
+What is a Subnet
+
+A subnet is a smaller network created from a large network.
+
+Purpose:
+
+Security
+
+Isolation
+
+Better management
+Reduced broadcast traffic
+
+Example:
+192.168.1.0/24 can be divided into smaller subnets like:
+192.168.1.0/26
+192.168.1.64/26
+
+
+Public Subnet
+Has route to Internet Gateway. Resources can access internet.
+
+Private Subnet
+No direct internet access. Used for databases and internal services.
+
+
+A port is a logical communication endpoint.
+
+IP address identifies the device.
+Port identifies the application on that device.
+
+Port range:
+0 – 65535
+
+Well-known ports:
+
+80 → HTTP
+
+443 → HTTPS
+
+22 → SSH
+
+21 → FTP
+
+What is a Protocol
+
+A protocol is a set of rules that define how data is transmitted between devices.
+
+Without protocol, devices cannot understand each other.
+
+Types of Protocol
+
+Transport Layer Protocol
+
+TCP
+Connection-oriented
+Reliable
+Data guaranteed
+Used for web, email, file transfer
+
+UDP
+Connectionless
+Faster
+No guarantee of delivery
+Used for streaming, gaming, DNS
+
+Internet Layer Protocol
+
+IP (Internet Protocol)
+Responsible for logical addressing and routing of packets.
+
+ICMP
+Used for error reporting and diagnostics (example: ping).
+
