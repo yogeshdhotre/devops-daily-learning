@@ -1,0 +1,235 @@
+# Linux Day 08 – Systemd & Services
+## 1. What is systemd?
+
+systemd is the system and service manager used by most modern Linux distributions (Ubuntu, CentOS, RHEL, Amazon Linux).
+
+It is responsible for:
+
+Booting the system
+
+Starting and stopping services
+
+Managing background processes (daemons)
+
+Handling system states
+
+When Linux starts, systemd is the first process that runs.
+
+Example:
+
+PID 1 = systemd
+
+Check it:
+
+ps -p 1
+
+Output will show:
+
+systemd
+## 2. What Systemd Manages
+
+Systemd manages services (daemons).
+
+Examples of services:
+
+Service	Purpose
+sshd	SSH login
+nginx	Web server
+docker	Container engine
+cron	Scheduled tasks
+
+These services run in the background.
+
+## 3. systemctl Command (Main Control Tool)
+
+systemctl is the main command used to control systemd services.
+
+Basic syntax:
+
+systemctl <command> <service-name>
+
+Example:
+
+systemctl status ssh
+## 4. List All Services
+
+To see all services:
+
+systemctl list-units --type=service
+
+List all installed services:
+
+systemctl list-unit-files --type=service
+## 5. Start a Service
+
+Start a service manually.
+
+Example:
+
+sudo systemctl start nginx
+
+This starts the service immediately, but it will not start automatically after reboot.
+
+## 6. Check Service Status
+
+To check if a service is running:
+
+systemctl status nginx
+
+Example output shows:
+
+Active
+
+Inactive
+
+Failed
+
+## 7. Stop a Service
+
+Stop a running service.
+
+sudo systemctl stop nginx
+
+This stops the service immediately.
+
+# 8. Restart a Service
+
+Restart means stop + start.
+
+sudo systemctl restart nginx
+
+Used after configuration changes.
+
+Example:
+
+Edit nginx.conf → restart nginx
+## 9. Reload a Service
+
+Reload applies configuration changes without restarting the service.
+
+sudo systemctl reload nginx
+
+Difference:
+
+Command	Action
+restart	stop + start
+reload	apply config without restart
+## 10. Enable a Service
+
+Enable means start automatically on system boot.
+
+sudo systemctl enable nginx
+
+This creates a symbolic link in systemd startup directory.
+
+## 11. Disable a Service
+
+Disable automatic startup.
+
+sudo systemctl disable nginx
+
+Service will not start after reboot.
+
+## 12. Where Service Files Are Stored
+
+Systemd service files are stored in:
+
+System services
+/etc/systemd/system/
+Default installed services
+/usr/lib/systemd/system/
+
+or
+
+/lib/systemd/system/
+
+To check:
+
+ls /etc/systemd/system
+## 13. Basic Structure of a Systemd Service File
+
+Service files end with:
+
+.service
+
+Example:
+
+myapp.service
+
+Basic structure:
+
+[Unit]
+Description=My Custom Application
+
+[Service]
+ExecStart=/usr/bin/python3 /home/user/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+Explanation:
+
+Section	Purpose
+Unit	Service description
+Service	Command to run
+Install	When to start
+14. Create a Custom Service (Example)
+
+Step 1 — Create service file
+
+sudo nano /etc/systemd/system/myapp.service
+
+Add:
+
+[Unit]
+Description=My Python App
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ubuntu/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+15. Important Steps After Creating Service
+
+After creating a service file you must reload systemd.
+
+Reload systemd
+sudo systemctl daemon-reload
+Enable service
+sudo systemctl enable myapp
+Start service
+sudo systemctl start myapp
+
+Check status
+
+systemctl status myapp
+## 16. Checking Logs (journalctl)
+
+Systemd logs are stored in journal logs.
+
+Command:
+
+journalctl
+
+View logs for a service:
+
+journalctl -u nginx
+
+Follow logs live:
+
+journalctl -u nginx -f
+
+Show recent logs:
+
+journalctl -n 50
+## 17. Most Important Commands (DevOps Use)
+Command	Purpose
+systemctl status service	check service
+systemctl start service	        start service
+systemctl stop service	        stop service
+systemctl restart service	restart service
+systemctl enable service	start at boot
+systemctl disable service	disable boot start
+journalctl -u service	        check logs
