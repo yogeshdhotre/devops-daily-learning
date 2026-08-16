@@ -15,3 +15,4 @@ Each day includes:
 Hands-on commands
 Real-world connection
 Reflection
+and other many more
