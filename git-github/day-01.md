@@ -1,5 +1,5 @@
 # Git Day 01 - Version Control Fundamentals
-## 1.What is Version Control?
+## 1.What is Version Control System?
 
 Version Control is a system that tracks changes in files over time.
 
