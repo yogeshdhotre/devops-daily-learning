@@ -1,4 +1,4 @@
-# Linux Day 01 - Fundamentals od linux
+# Linux Day 01 - Fundamentals of linux
 
 ## 1.What is an Operating System?
 An Operating System (OS) is system software that manages hardware and software resources and provides services for programs.
